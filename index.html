@@ -18,12 +18,14 @@
 			<br />
 			<br />
 			<button v-on:click="display">Hobbies JuJu!</button>
-			<span v-if="seen">
-				<img src="4.jpg" />
+			<div v-if="seen">
+				<br />
+				<img src="4.jpg" height="500" width="700" />
+
 				<ol>
 					<li v-for="hobby in hobbies">{{hobby.text}}</li>
 				</ol>
-			</span>
+			</div>
 		</div>
 
 		<!--SCRIPT-->
