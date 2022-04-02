@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Turismo</title>
+	</head>
+	<body>
+		<script src="https://unpkg.com/vue@3"></script>
+
+		<div id="app">{{ message }}</div>
+
+		<!--DIV 2-->
+		<div id="app2">
+			<p>{{ text }}</p>
+			<input v-model="text" placeholder="Cambia el texto!" />
+			<br />
+			<br />
+			<button v-on:click="display">Ambato, la mejor ciudad del MUNDO!</button>
+			<div v-if="seen">
+				<br />
+				<img src="5.jpg" height="500" width="700" />
+
+				<ol>
+					<li v-for="cualidad in ambato">{{cualidad.text}}</li>
+				</ol>
+			</div>
+		</div>
+
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						message: 'A00823972',
+					};
+				},
+			}).mount('#app');
+
+			Vue.createApp({
+				data() {
+					return {
+						seen: 0,
+						text: 'AMBATITOOOO!',
+						ambato: [
+							{
+								text: 'Conocida como la tierra de las flores y de las frutas en Ecuador.',
+							},
+							{ text: 'Se encuentra en el centro del pais.' },
+							{ text: 'Esta entre las 5 ciudades mas importantes del país.' },
+							{
+								text: 'Es la cuna de los 3 Juanes: Juan Montalvo, Juan Leon Mera y Juan Beningo Vela.',
+							},
+						],
+					};
+				},
+				methods: {
+					display: function () {
+						this.seen = !this.seen;
+					},
+				},
+			}).mount('#app2');
+		</script>
+	</body>
+</html>
