@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Suits!</title>
+	</head>
+	<body>
+		<script src="https://unpkg.com/vue@3"></script>
+		<div id="app">
+			<h3>DOM Reference</h3>
+			<p ref="p">hello</p>
+		</div>
+
+		<script>
+			Vue.createApp({
+				mounted() {
+					var today = new Date();
+					this.$refs.p.textContent = 'La fecha de hoy es: ' + today;
+				},
+			}).mount('#app');
+		</script>
+	</body>
+</html>
