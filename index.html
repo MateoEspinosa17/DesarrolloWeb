@@ -11,6 +11,19 @@
 		<div id="app">
 			<h3>DOM Reference</h3>
 			<p ref="p">hello</p>
+			<button @click="increment">Increment Counter</button>
+			<br />
+			<br />
+			<button @click="decrement">Decrement Counter</button>
+			<br />
+			<br />
+			<button @click="zeros">Reset Counter</button>
+			<br />
+			<br />
+			<p>Counter: {{counter}}</p>
+			<span>
+				El counter es: {{ counter > 0 ? 'Mayor a cero' : 'Cero o menor a cero'}}
+			</span>
 		</div>
 
 		<script>
@@ -18,6 +31,27 @@
 				mounted() {
 					var today = new Date();
 					this.$refs.p.textContent = 'La fecha de hoy es: ' + today;
+				},
+				data() {
+					return {
+						counter: 0,
+					};
+				},
+				methods: {
+					increment() {
+						this.counter++;
+					},
+					decrement() {
+						this.counter--;
+					},
+					zeros() {
+						this.counter = 0;
+					},
+				},
+				computed: {
+					negative() {
+						return this.counter > 0 ? 'Mayor a cero' : 'Cero';
+					},
 				},
 			}).mount('#app');
 		</script>
